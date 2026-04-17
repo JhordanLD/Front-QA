@@ -25,6 +25,10 @@ npm --version
 ## Instalación
 
 ```bash
+cd Front-QA
+```
+
+```bash
 npm install
 ```
 
