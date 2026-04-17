@@ -1,0 +1,10 @@
+{
+  "backpack": {
+    "slug": "sauce-labs-backpack",
+    "displayName": "Sauce Labs Backpack"
+  },
+  "red-t-shirt": {
+    "slug": "test.allthethings()-t-shirt-(red)",
+    "displayName": "Test.allTheThings() T-Shirt (Red)"
+  }
+}

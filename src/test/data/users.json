@@ -1,0 +1,36 @@
+{
+  "standard": {
+    "user": "standard_user",
+    "pass": "secret_sauce"
+  },
+  "locked": {
+    "user": "locked_out_user",
+    "pass": "secret_sauce",
+    "expectedError": "Epic sadface: Sorry, this user has been locked out."
+  },
+  "standard_no_user": {
+    "user": "",
+    "pass": "secret_sauce",
+    "expectedError": "Epic sadface: Username is required"
+  },
+  "standard_no_pass": {
+    "user": "standard_user",
+    "pass": "",
+    "expectedError": "Epic sadface: Password is required"
+  },
+  "none": {
+    "user": "",
+    "pass": "",
+    "expectedError": "Epic sadface: Username is required"
+  },
+  "none_forced": {
+    "user": "",
+    "pass": "",
+    "expectedError": "Epic sadface: You can only access '/inventory.html' when you are logged in."
+  },
+  "invalid_user": {
+    "user": "standard_user",
+    "pass": "no_secret_sauce",
+    "expectedError": "Epic sadface: Username and password do not match any user in this service"
+  }
+}
