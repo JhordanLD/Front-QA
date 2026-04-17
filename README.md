@@ -102,21 +102,8 @@ reports/
 
 **Data-Driven Testing**: Los datos de prueba se separan del código en archivos JSON.
 
-## Ejemplos
 
-### Ejecutar solo smoke tests
-
-```bash
-npm test -- --tags "@smoke"
-```
-
-### Ejecutar solo login
-
-```bash
-npm test -- src/test/features/login.feature
-```
-
-## Reportes
+## Revision de Reportes
 
 Los reportes se generan automáticamente en `reports/cucumber-report.html`.
 
@@ -125,6 +112,31 @@ Abre el último reporte con:
 ```bash
 npm run open:report
 ```
+
+## Reporte de Hallazgos
+
+#### 🔴 Críticos
+
+| Hallazgo                  | Descripción                                                                                                                           | Impacto                                                        |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| **Broken Access Control** | Es posible navegar a `checkout-step-two.html` y `checkout-complete.html` directamente desde la URL sin completar el formulario previo | Flujo de datos incompleto, pedidos sin información del cliente |
+| **Error 503**             | Acceder a `inventory-item.html?id=7` genera error 503 Service Unavailable                                                             | Algunos productos no son accesibles                            |
+| **Carrito sin reset**     | Si se salta el formulario y se presiona "Back Home" en checkout-complete, el carrito no se limpia                                     | Inconsistencia en estado de la sesión                          |
+
+#### 🟡 Menores
+
+| Hallazgo                   | Descripción                                                                                     |
+| -------------------------- | ----------------------------------------------------------------------------------------------- |
+| **Sin validación cliente** | Los campos (firstName, lastName, postalCode) en checkout-step-one no se validan antes de enviar |
+| **Sin resumen de datos**   | En checkout-step-two no se muestra la información del formulario ingresado (nombre, dirección)  |
+
+### 📋 Próximos Pasos de Automatización
+
+- [ ] Validar que no se pueda acceder a los endpoints de checkout sin llenar el formulario
+- [ ] Automatizar prueba del error 503 en product id=7
+- [ ] Verificar que el carrito se limpie correctamente al presionar "Back Home"
+- [ ] Automatizar validación de campos del formulario
+
 
 ---
 
